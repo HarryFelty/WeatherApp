@@ -1,0 +1,68 @@
+header {
+    text-align: center;
+    background-color: rgb(9, 9, 87);
+    padding: 5px 0;
+    color: yellow;
+}
+
+main {
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+    gap: 1%;
+    grid-template-areas:
+        "search currentWthr currentWthr currentWthr currentWthr currentWthr"
+        "search forecast1 forecast2 forecast3 forecast4 forecast5"
+        "search . . . . .";
+}
+
+button {
+    display: block;
+    width: 80%;
+    margin: 5% auto;
+    background-color: lightblue;
+}
+
+input {
+    margin: 0 auto;
+}
+
+.weather {}
+
+.forecast {
+    background-color: rgb(37, 37, 68);
+}
+
+#citySearch {
+    border-bottom: solid 1px gray;
+}
+
+#search {
+    grid-area: search;
+}
+
+#currentWthr {
+    grid-area: currentWthr;
+    border: 1px solid gray;
+}
+
+#forecast1 {
+    grid-area: forecast1;
+}
+
+#forecast2 {
+    grid-area: forecast2;
+}
+
+#forecast3 {
+    grid-area: forecast3;
+}
+
+#forecast4 {
+    grid-area: forecast4;
+}
+
+#forecast5 {
+    grid-area: forecast5;
+}
