@@ -2,6 +2,7 @@ let searchEl = document.querySelector("input");
 let searchBtn = document.querySelector("#searchBtn");
 let cityBtns = document.querySelector("#cityBtns");
 let weatherEl = document.querySelectorAll(".weather");
+let date = new Date();
 
 function getWeather(location) {
 
@@ -17,7 +18,11 @@ function getWeather(location) {
         .then(data => {
             console.log(data);
             for (let i = 0; i < weatherEl.length; i++) {
-
+                weatherEl[i].innerHTML =
+                    `<span>${data.list[i].dt_txt.split(" ")[0]}</span>
+                    <span>${data.list[i].main.temp}</span>
+                    <span>${data.list[i].wind.speed}</span >
+                    <span>${data.list[i].main.humidity} `
                 // let newSpan = document.createElement("span");
                 // newSpan.textContent = data.list[i].dt_txt.split(" ")[0];
                 // weatherEl[i].appendChild(newSpan);
