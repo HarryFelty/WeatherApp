@@ -12,6 +12,15 @@ N/A
 
 This project can be used to get a forecast of the local weather based on city. A specific city can be searched for, or a pre-selected city can quickly be searched by clicking on the corresponding button. This project not only shows the current weather but also a 5-day forecast. The information provided about the weather includes the temperature, wind, and humidity. An icon is displayed to convey the current weather - sun, rain, cloudy, etc.
 
+Repo: https://github.com/HarryFelty/WeatherApp
+
+Site:https://harryfelty.github.io/WeatherApp/
+
+
+
+![Screenshot 2023-08-07 202519](https://github.com/HarryFelty/WeatherApp/assets/125701349/8326e9cb-0f59-4221-a864-1346c2230543)
+
+
 ## Credits
 
 N/A
