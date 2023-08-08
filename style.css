@@ -46,6 +46,11 @@ button:hover {
     background-color: rgb(223, 218, 218);
 }
 
+.cityInput {
+    position: relative;
+    left: 1em;
+}
+
 .firstSpan {
     font-weight: bold;
 }
