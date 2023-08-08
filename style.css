@@ -9,12 +9,12 @@ main {
     margin-top: 1%;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 200px 75px 310px;
     gap: 1%;
     grid-template-areas:
         "search currentWthr currentWthr currentWthr currentWthr currentWthr"
-        "search forecast1 forecast2 forecast3 forecast4 forecast5"
-        "search . . . . .";
+        "search forecastHdr . . . ."
+        "search forecast1 forecast2 forecast3 forecast4 forecast5";
 }
 
 button {
@@ -26,12 +26,49 @@ button {
 
 input {
     margin: 0 auto;
+    height: 2em;
+    font-size: 100%;
 }
 
-.weather {}
+span {
+    display: block;
+    margin: 5px;
+}
+
+button {
+    height: 3em;
+    border-radius: 10px;
+    font-size: 100%;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: rgb(223, 218, 218);
+}
+
+.firstSpan {
+    font-weight: bold;
+}
 
 .forecast {
-    background-color: rgb(37, 37, 68);
+    background-color: rgb(50, 50, 80);
+    font-size: 120%;
+    color: whitesmoke;
+}
+
+.forecast span {
+    margin-bottom: 10%;
+}
+
+#crntWthrIcon {
+    position: relative;
+    float: right;
+    right: 65%
+}
+
+#currentWthr {
+    font-size: 200%;
+    background-color: gainsboro;
 }
 
 #citySearch {
@@ -65,4 +102,8 @@ input {
 
 #forecast5 {
     grid-area: forecast5;
+}
+
+#forecastHdr {
+    grid-area: forecastHdr;
 }
