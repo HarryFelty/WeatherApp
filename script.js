@@ -35,7 +35,7 @@ function getWeather(location) {
             let x = 7;
             for (let i = 0; i < weatherEl.length; i++) {
                 weatherEl[i].innerHTML =
-                    `<span class = "firstSpan">${moment(data.list[x].dt, "X").format("M/D/YYYY")}</span>
+                    `<span class = "forecastSpan">${moment(data.list[x].dt, "X").format("M/D/YYYY")}</span>
                     <img src="https://openweathermap.org/img/wn/${data.list[x].weather[0].icon}@2x.png">
                     <span>Temp: ${data.list[x].main.temp} ℉</span>
                     <span>Wind: ${data.list[x].wind.speed} MPH</span >

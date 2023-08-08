@@ -2,7 +2,7 @@
 
 ## Description
 
-This project was created to demonstrate the use of third-party APIs. In this case, the API was a weather API. The technologies used inclue the API for openweathermap.org, as well as AJAX and JavaScript. Throughout this project I was able to learn how to utilize third-party APIs, use fetch requests and promises, and effeciently navigate documentation.
+This project was created to demonstrate the use of third-party APIs. In this case, the API was a weather API. The technologies used inclue the API for openweathermap.org, as well as AJAX and local storage. Throughout this project I was able to learn how to utilize third-party APIs, use fetch requests and promises, and effeciently navigate documentation.
 
 ## Installation
 

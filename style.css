@@ -50,6 +50,11 @@ button:hover {
     font-weight: bold;
 }
 
+.forecastSpan {
+    font-size: 125%;
+    font-weight: bold;
+}
+
 .forecast {
     background-color: rgb(50, 50, 80);
     font-size: 120%;
