@@ -12,7 +12,7 @@ if (JSON.parse(localStorage.getItem("city"))) {
 //function makes fetch requests passing in appropriate location on function call and displays data to screen
 function getWeather(location) {
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=48a7e18c666050565ed304894777941b`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=48a7e18c666050565ed304894777941b`)
         .then(response => response.json())
         .then(citiesFound => {
             let firstCity = citiesFound[0];
@@ -47,12 +47,12 @@ function getWeather(location) {
 }
 
 //even listners for search button and preset city buttons, calling fetch on click
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", function () {
     getWeather(searchEl.value);
     localStorage.setItem("city", JSON.stringify(searchEl.value));
 })
 
-cityBtns.addEventListener("click", event => {
+cityBtns.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         getWeather(event.target.textContent);
         localStorage.setItem("city", JSON.stringify(event.target.textContent));
