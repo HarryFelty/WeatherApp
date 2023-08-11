@@ -3,10 +3,23 @@ let searchBtn = document.querySelector("#searchBtn");
 let cityBtns = document.querySelector("#cityBtns");
 let weatherEl = document.querySelectorAll(".weather");
 let currentWthrEl = document.querySelector("#currentWthr");
+let searchHistEl = document.querySelector("#cityBtns");
+let recents = JSON.parse(localStorage.getItem("recents")) || [];
+
+searchHistory();
 
 //checks local storage to display most recently searched city weather
-if (JSON.parse(localStorage.getItem("city"))) {
-    getWeather(JSON.parse(localStorage.getItem("city")));
+if (JSON.parse(localStorage.getItem("recents"))[0]) {
+    getWeather(JSON.parse(localStorage.getItem("recents"))[0]);
+}
+
+//populates previous searches
+function searchHistory() {
+    for (let i = 0; i < recents.length; i++) {
+        let newBtn = document.createElement("button");
+        newBtn.textContent = recents[i];
+        searchHistEl.prepend(newBtn);
+    }
 }
 
 //function makes fetch requests passing in appropriate location on function call and displays data to screen
@@ -25,7 +38,7 @@ function getWeather(location) {
             console.log(data);
             //sets current weather div
             currentWthrEl.innerHTML =
-                `<span class = "firstSpan">${JSON.parse(localStorage.getItem("city"))} ${moment(data.list[0].dt, "X").format("M/D/YYYY")}</span>
+                `<span class = "firstSpan">${JSON.parse(localStorage.getItem("recents"))[0]} ${moment(data.list[0].dt, "X").format("M/D/YYYY")}</span>
                 <img id="crntWthrIcon" src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png">
                 <span>Temp: ${data.list[0].main.temp} ℉</span>
                 <span>Wind: ${data.list[0].wind.speed} MPH</span >
@@ -49,7 +62,17 @@ function getWeather(location) {
 //even listners for search button and preset city buttons, calling fetch on click
 searchBtn.addEventListener("click", function () {
     getWeather(searchEl.value);
-    localStorage.setItem("city", JSON.stringify(searchEl.value));
+
+    recents.unshift(searchEl.value);
+    if (recents.length > 8) {
+        recents.pop();
+    }
+
+    localStorage.setItem("recents", JSON.stringify(recents));
+
+    let newBtn = document.createElement("button");
+    newBtn.textContent = searchEl.value;
+    searchHistEl.prepend(newBtn);
 })
 
 cityBtns.addEventListener("click", function (event) {
