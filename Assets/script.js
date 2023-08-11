@@ -9,7 +9,7 @@ let recents = JSON.parse(localStorage.getItem("recents")) || [];
 searchHistory();
 
 //checks local storage to display most recently searched city weather
-if (JSON.parse(localStorage.getItem("recents"))[0]) {
+if (JSON.parse(localStorage.getItem("recents"))) {
     getWeather(JSON.parse(localStorage.getItem("recents"))[0]);
 }
 
