@@ -9,8 +9,8 @@ let recents = JSON.parse(localStorage.getItem("recents")) || [];
 searchHistory();
 
 //checks local storage to display most recently searched city weather
-if (JSON.parse(localStorage.getItem("recents"))) {
-    getWeather(JSON.parse(localStorage.getItem("recents"))[0]);
+if (recents.length) {
+    getWeather(recents[0]);
 }
 
 //populates previous searches
@@ -38,7 +38,7 @@ function getWeather(location) {
             console.log(data);
             //sets current weather div
             currentWthrEl.innerHTML =
-                `<span class = "firstSpan">${JSON.parse(localStorage.getItem("recents"))[0]} ${moment(data.list[0].dt, "X").format("M/D/YYYY")}</span>
+                `<span class = "firstSpan">${recents[0]} ${moment(data.list[0].dt, "X").format("M/D/YYYY")}</span>
                 <img id="crntWthrIcon" src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png">
                 <span>Temp: ${data.list[0].main.temp} ℉</span>
                 <span>Wind: ${data.list[0].wind.speed} MPH</span >
@@ -78,6 +78,11 @@ searchBtn.addEventListener("click", function () {
 cityBtns.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         getWeather(event.target.textContent);
-        localStorage.setItem("city", JSON.stringify(event.target.textContent));
+
+        recents.unshift(event.target.textContent);
+        if (recents.length > 8) {
+            recents.pop();
+        }
+        localStorage.setItem("recents", JSON.stringify(recents));
     }
 })
